@@ -1,0 +1,79 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: Gotham Rounded, sans-serif;
+    font-weight: normal;
+}
+
+/* create background colour */
+body {
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(to right, #00AAFF, #00FF6C);
+}
+
+
+.calculator-grid {
+
+    /* create calculator grid */
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    
+    /* fills 100% of view height  */
+    min-height: 100vh; 
+
+    /*minmax(a,b) a = minimum value, b, = maximum value
+    auto: as large as needed*/
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+}
+
+/*selects all button elements within calculator-grid*/
+.calculator-grid > button {
+    /* changes cursor when hovering over button */
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid white;
+    outline: none;
+    
+    /*75% opacity buttons*/
+    background-color: rgba(255, 255, 255, .75);
+}
+
+/*increase button opacity when hovered over*/
+.calculator-grid > button:hover {
+    background-color: rgba(255, 255, 255, .9);
+
+}
+
+/*change span of larger buttons*/
+.span-two {
+    grid-column: span 2;
+}
+
+.output {
+    /*output goes from first column to last column*/
+    grid-column: 1 / -1;
+    background-color: rgba(0, 0, 0, .75);
+
+    /*Align output contents*/
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 10px;
+
+    /*allow text overflow to wrap from all points*/
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.output .previous-operand {
+    color: rgba(255, 255, 255, .75);
+    font-size: 1.5rem;
+}
+
+.output .current-operand {
+    color: white;
+    font-size: 2.5rem;
+}
