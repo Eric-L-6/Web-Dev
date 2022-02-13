@@ -92,7 +92,7 @@ function createTask(name) {
 
 //List object / struct components
 function createList(name) {
-    return { id: Date.now().toString(), name: name, tasks: [{id: 11, name: "hi", complete: false}]}
+    return { id: Date.now().toString(), name: name, tasks: []};
 }
 
 function saveAndRender() {
